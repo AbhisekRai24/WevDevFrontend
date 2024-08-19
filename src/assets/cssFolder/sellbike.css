@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+
+.sell-bike-container {
+    padding: 2em;
+}
+
+.sell-bike-container h2 {
+    background-color: #2A52BE;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2em;
+}
+
+.image-upload {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ddd;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    height: 300px;
+    text-align: center;
+}
+
+.image-upload .upload-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #bbb;
+}
+
+.image-upload .upload-placeholder span {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.form-fields {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.form-fields input, .form-fields textarea {
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-fields textarea {
+    resize: none;
+    height: 150px;
+}
+
+.form-fields button {
+    padding: 1em;
+    border: none;
+    background-color:#2A52BE;
+    color: white;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-fields button:hover {
+    background-color: #155a9b;
+}

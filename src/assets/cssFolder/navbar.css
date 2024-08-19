@@ -1,0 +1,51 @@
+
+.NavBar{ 
+    display: flex;
+    align-items: center;
+    background-color: #2A52BE;
+    padding: 10px 20px;
+    
+
+}
+
+.NavBar h1{
+    color: aliceblue;
+  
+}
+
+nav{
+    flex:1;
+    text-align: right;
+}
+
+nav ul{
+    display : inline-block;
+    list-style-type: none;
+    color: aliceblue;
+}
+
+nav ul li{
+    display: inline-block;
+    margin-right: 150px;
+    
+}
+a{
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: 600;
+    display: block;
+    padding: 10px 20px
+}   
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    background-image: url('../imageFolder/mainLogo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 100px; 
+    height: 60px; 
+}

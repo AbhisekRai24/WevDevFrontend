@@ -1,0 +1,93 @@
+ body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.bg {
+    background-image: url('../imageFolder/r.jpg'); 
+    color :  #007bff;
+    /* background-position: center;
+    height: 100vh; 
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    overflow: hidden; */
+
+ 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.loginContainer {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* padding: 200px 20px;   */
+    max-width: 400px;
+    padding: 100px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    text-align: center;
+}
+
+.loginContainer  h1 {
+    margin-bottom: 20px;
+}
+.loginContainer  p{
+    color: black;
+}
+
+
+ .loginContainer  input[type="text"], .loginContainer  input[type="password"] , .loginContainer  input[type="email"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color:#FFFFFF	
+    
+}
+
+.loginContainer a {
+    
+    text-decoration: none; 
+  }
+  
+  .loginContainer a:hover {
+    color:#968DCD;
+    text-decoration: underline;}
+
+.loginContainer  button {
+    width: 85%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.loginbtn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.loginbtn:hover{
+    background-color:  #968DCD;
+}
+
+

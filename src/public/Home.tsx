@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../assets/cssFolder/home.css'
 import '../assets/cssFolder/navbar.css'
 import { Link, useNavigate } from 'react-router-dom';
-
+import Sidebar from '../public/Sidebar';
 // import Modal from 'react-modal';
 
 interface Bike {
@@ -13,9 +13,12 @@ interface Bike {
     imageUrl: string;
   }
 
+  
+
 
 const Home: React.FC = () => {
     const [bikes, setBikes] = useState<Bike[]>([]);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
     const navigate = useNavigate();
 
 
@@ -72,12 +75,19 @@ const Home: React.FC = () => {
             alert('Booking date is required');
         }
     };
+
+   
     
     
     const handleLogout = () => {
         localStorage.removeItem('userId');
         navigate('/login');
     };
+
+    const toggleSidebar = () => {
+        setSidebarOpen(!sidebarOpen);
+      };
+    
 
     
     // Dummy function to get bike ID based on product name
@@ -101,8 +111,8 @@ const Home: React.FC = () => {
                     <nav>
                         <ul>
                         <li><Link to="/home">Bikes</Link></li>
-                        {/* <li><Link to="/models">Models</Link></li>
-                        <li><Link to="/account">Account</Link></li> */}
+                        <li><a href="#" onClick={toggleSidebar}>Cart</a></li>
+                        {/* <li><Link to="/account">Account</Link></li> */}
                         <li><a href="#" onClick={handleLogout}>Logout</a></li>
                         </ul>
                     </nav>
@@ -124,6 +134,13 @@ const Home: React.FC = () => {
                 </div>    ))}
                 </div>
             </main>
+            
+            {sidebarOpen && (
+                <Sidebar
+                  userId={parseInt(localStorage.getItem('userId') || '0', 10)}
+                  onClose={toggleSidebar}
+                />
+              )}
         </div>
     );
 }

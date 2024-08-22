@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import '../assets/cssFolder/sellbike.css';
 import '../assets/cssFolder/navbar.css'
 import axios from 'axios';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-
-
 
 
 const SellBike: React.FC = () => {
@@ -14,8 +14,7 @@ const SellBike: React.FC = () => {
     const [newProduct, setNewProduct] = useState({
         model: '',
         brand:'',
-        
-        availability_status:'',
+
         description: '',
         imageUrl: '',
         price: ''
@@ -31,17 +30,16 @@ const SellBike: React.FC = () => {
             [name]: value
         }));
     };
+  
 
     const handleSubmit = async () => {
         try {
             await axios.post('http://localhost:8080/bikes/bikecreate', newProduct);
             toast.success('Your product has been listed!');
-            // Optionally, clear form fields
+            
             setNewProduct({
                 model: '',
                 brand:'',
-                
-                availability_status:'',
                 description: '',
                 imageUrl: '',
                 price: ''
@@ -49,11 +47,13 @@ const SellBike: React.FC = () => {
             });
         } catch (error) {
             console.error('Error creating bike:', error);
-            alert('Failed to list bike.');
+            toast.error('Failed to list bike.');
         }
 
     
     };
+
+ 
     return (
         <div>
             <header>
@@ -76,8 +76,8 @@ const SellBike: React.FC = () => {
                 <div className="form-container">
                     <div className="image-upload">
                         <div className="upload-placeholder">
-                            <span>+</span>
-                            <p>Upload Image</p>
+                            <label>Image</label>
+                            <input type= {"file"}/>
                         </div>
                     </div>
                     <div className="form-fields">
@@ -91,11 +91,7 @@ const SellBike: React.FC = () => {
                             placeholder="Brand"
                             value={newProduct.brand}
                             onChange={handleChange} />
-                        <input   type="text"
-                            name="status"
-                            placeholder="Status"
-                            value={newProduct. availability_status}
-                            onChange={handleChange} />
+                       
                         <textarea name="description"
                             placeholder="Description"
                             value={newProduct.description}
@@ -109,7 +105,9 @@ const SellBike: React.FC = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
+        
     );
 };
 

@@ -30,7 +30,7 @@ const Register: React.FC = () => {
             setSuccessMessage('');
 
             // Simulate sending data to the backend
-            const response = await fetch('https://your-backend-api/register', {
+            const response = await fetch('http://localhost:8080/auth/save', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -62,25 +62,52 @@ const Register: React.FC = () => {
         }
     };
 
-    return (
-
-
-        
-        <div className="bgRegister">
-            <div className="registerContainer">
-                <h1>Register</h1>
-                <form>
-                    <input type="text" placeholder="Username" required />
-                    <input type="email" placeholder="Email" required />
-                    <input type="password" placeholder="Password" required />
-                    <input type="password" placeholder="Confirm Password" required />
-                    <button type="submit" className="registerbtn">Register</button>
-                </form>
-                <p>If you are new to our website, please register by filling information in the above fields.<br />
-                    Gain access to our features and browse the motor bikes and scooters to your liking.</p>
+        return (
+            <div className="bgRegister">
+                <div className="registerContainer">
+                    <h1>Register</h1>
+                    {error && <p className="error">{error}</p>}
+                    {successMessage && <p className="success">{successMessage}</p>}
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            placeholder="Username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                        />
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                        <input
+                            type="password"
+                            placeholder="Confirm Password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            required
+                        />
+                        <button type="submit" className="registerbtn" disabled={loading}>
+                            {loading ? 'Registering...' : 'Register'}
+                        </button>
+                    </form>
+                    <p>
+                        If you are new to our website, please register by filling in the above fields.<br />
+                        Gain access to our features and browse the motor bikes and scooters to your liking.
+                    </p>
+                </div>
             </div>
-        </div>
-    );
-};
-
-export default Register;
+        );
+    };
+    
+    export default Register;
